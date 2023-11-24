@@ -63,4 +63,7 @@ div.main-grid article.squareEl{
 .main-grid article.squareEl.clicked.bg-purple{
     background-color: purple;
 }
+.main-grid article.squareEl.clicked.bg-redbomb{
+    background-color: red;
+}
 /* FINE CSS DELL'ESERCIZIO PRECEDENTE */
