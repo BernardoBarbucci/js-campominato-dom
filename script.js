@@ -40,6 +40,7 @@ function startNewGame(wrapperEl, modeSelector) {
         //creazione if che include anche le bombe + if per bg colors on click
         if (bombs.includes(squareContent)) {
             singularSquare.classList.add('bomba');
+            singularSquare.innerHTML = '<i class="fas fa-bomb"></i>';
         } else {
             if (squareContent % 2 === 0) {
                 singularSquare.classList.add('bg-black');
