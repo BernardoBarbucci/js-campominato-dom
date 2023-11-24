@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #153677, #4e085f);
+    padding: 10px;
+}
+.tools{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container .tools h1{
+    margin: 1.5rem auto 0;
+    color: white;
+    text-align: center;
+}
+.container .tools #start-button,
+select{
+    background-color: aqua;
+    border: none;
+    border-radius: 15px;
+    margin: .5rem;
+    width: 6rem;
+    height: 2rem;
+    text-align: center;
+}
+.container .tools #start-button:hover,
+select:hover{
+    background-color: purple;
+    color: white;
+}
+.main-grid{
+    width: 100%;
+    max-width: 540px;
+    /* border: 1px solid black; */
+    margin: 30px auto 20px;
+    /* padding: 40px 30px 70px; */
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+div.main-grid article.squareEl{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+    border: 2px solid black;
+    font-size: 2rem;
+    font-weight: 500;
+    color: white;
+}
+
+.main-grid article.squareEl.clicked.bg-black{
+    background-color: black;
+}
+.main-grid article.squareEl.clicked.bg-purple{
+    background-color: purple;
+}
+/* FINE CSS DELL'ESERCIZIO PRECEDENTE */
