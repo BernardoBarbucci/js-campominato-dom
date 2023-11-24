@@ -23,7 +23,6 @@ function startNewGame(wrapperEl, modeSelector) {
     wrapperEl.innerHTML = '';
     const mode = parseInt(modeSelector.value);
     let cellsNumb = getNumberOfSquares(mode);
-    const squaresRow = Math.sqrt(cellsNumb);
     // bombe
     const bombs = genBombs(cellsNumb);
 
@@ -89,8 +88,8 @@ function getNumberOfSquares(mode) {
 
 function genBombs(cellsNumb) {
     const bombs = [];
-    while (bombs.length <= 16) {
-        const = bombPosition = Math.floor(Math.random() * cellsNumb) + 1;
+    while (bombs.length < 16) {
+        const bombPosition = Math.floor(Math.random() * cellsNumb) + 1;
         if (!bombs.includes(bombPosition)) {
             bombs.push(bombPosition);
         }
