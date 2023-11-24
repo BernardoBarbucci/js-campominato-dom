@@ -4,15 +4,15 @@ const startButtonEl = document.querySelector('button#start-button');
 const gameModeEl = document.querySelector('select#select-difficulty');
 
 startButtonEl.addEventListener('click', function(){
-    startNewGame(gridEl, gameModeEl)
+    startNewGame(gridEl, gameModeEl);
 });
 
-// funzione dove creo i quadratini e creo una griglia
 function startNewGame(wrapperEl, modeSelector) {
     wrapperEl.innerHTML = '';
     const mode = parseInt(modeSelector.value);
-    let cellsNumb;
-    // creo uno switch per implementare piu modalita dentro un unico elemento su js (special thanks goes to 'rc2pc2')
+    let cellsNumb = getNumberOfSquares(mode);
+    const squaresRow = Math.sqrt(cellsNumb);
+    // varie difficolta
     switch (mode){
         case 1:
             cellsNumb = 81;
@@ -29,25 +29,23 @@ function startNewGame(wrapperEl, modeSelector) {
     // ciclo for per generare gli squares
     for (let i = 0; i < cellsNumb; i++) {
         const singularSquare = createNewSquare();
-        const squareContent = i + 1; // aggiunto + 1 per far partire i quadratini da 1 e non da 0
-        // print su html
+        const squareContent = i + 1; 
         singularSquare.innerHTML += `<span> ${squareContent} </span>`;
-        // grandezza square
+        // grandezze square
         const squareSize = `calc(100% / ${squaresRow})`;
         singularSquare.style.width = squareSize;
         singularSquare.style.height = squareSize;
-        // if per cambiare background-color in base a pari e dispari
+        // bg colors on click
         if (squareContent % 2 === 0){
             singularSquare.classList.add('bg-black');
         } else {
             singularSquare.classList.add('bg-purple')
         }
-        // accendi e spengi ad ogni click
+        // onf-off on click(toggle)
         singularSquare.addEventListener('click', function(){
             singularSquare.classList.toggle('clicked');
             console.log(squareContent);
         });
-        // appendchild di singularS
         wrapperEl.appendChild(singularSquare);
     }
 }
@@ -72,3 +70,4 @@ function createNewSquare(){
     // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha cliccato su una cella che non era una bomba.
 
 // generare 16 numeri casuali (prolly with an array) in ogni difficolta (quindi 16 numeri tra 1-) + attenzione che non possono essere generati gli stessi numeri = bombe 
+// aggiungo all'event listener del codice precedente un array per implementare le bombe e crearle automaticamente quando clicco il button per creare i quadratini
