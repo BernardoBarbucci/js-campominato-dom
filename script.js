@@ -71,4 +71,4 @@ function createNewSquare(){
     // (ovvero quando ha rivelato tutte le celle che non sono bombe).
     // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha cliccato su una cella che non era una bomba.
 
-// generare 16 numeri casuali (prolly with an array) in ogni difficolta + attenzione che non possono essere generati gli stessi numeri = bombe
+// generare 16 numeri casuali (prolly with an array) in ogni difficolta (quindi 16 numeri tra 1-) + attenzione che non possono essere generati gli stessi numeri = bombe 
