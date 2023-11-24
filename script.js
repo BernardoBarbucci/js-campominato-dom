@@ -96,3 +96,7 @@ function genBombs(cellsNumb) {
     }
     return bombs;
 }
+
+function endGame() {
+    alert('BOOM! you clicked the wrong square, GAME OVER!')
+}
