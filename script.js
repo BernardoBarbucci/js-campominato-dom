@@ -12,18 +12,22 @@ function startNewGame(wrapperEl, modeSelector) {
     const mode = parseInt(modeSelector.value);
     let cellsNumb = getNumberOfSquares(mode);
     const squaresRow = Math.sqrt(cellsNumb);
-    // varie difficolta
-    switch (mode){
-        case 1:
-            cellsNumb = 81;
-            break;
-        case 2:
-            cellsNumb = 49;
-            break;
-        default:
-            cellsNumb = 100;
-            break;
-    }
+    // bombe
+    const bombs = genBombs(cellsNumb);
+
+    // varie difficolta (PROBABILMENTE DA RIMUOVERE)
+    // switch (mode){
+    //     case 1:
+    //         cellsNumb = 81;
+    //         break;
+    //     case 2:
+    //         cellsNumb = 49;
+    //         break;
+    //     default:
+    //         cellsNumb = 100;
+    //         break;
+    // }
+
     // 'Math.sqrt'static method returns the square root of a number (source: mdn)
     let squaresRow = Math.sqrt(cellsNumb);
     // ciclo for per generare gli squares
@@ -35,17 +39,28 @@ function startNewGame(wrapperEl, modeSelector) {
         const squareSize = `calc(100% / ${squaresRow})`;
         singularSquare.style.width = squareSize;
         singularSquare.style.height = squareSize;
-        // bg colors on click
-        if (squareContent % 2 === 0){
-            singularSquare.classList.add('bg-black');
+        //creazione if che include anche le bombe + if per bg colors on click
+        if (bombs.includes(squareContent)) {
+            singularSquare.classList.add('bomba;')
         } else {
-            singularSquare.classList.add('bg-purple')
-        }
-        // onf-off on click(toggle)
-        singularSquare.addEventListener('click', function(){
-            singularSquare.classList.toggle('clicked');
-            console.log(squareContent);
-        });
+            if (squareContent % 2 === 0) {
+                singularSquare.classList.add('bg-black');
+            } else {
+                singularSquare.classList.add('bg-purple')
+            }
+
+            // onf-off on click(toggle) + spostato nell'else il toggle realtivo al cambio bg-color 
+            singularSquare.addEventListener('click', function(){
+                if (singularSquare.classList.contains('bomba')) {
+                    endGame();
+                } else {
+                    singularSquare.classList.toggle('clicked');
+                    console.log(squareContent);
+                }
+            });
+
+
+
         wrapperEl.appendChild(singularSquare);
     }
 }
