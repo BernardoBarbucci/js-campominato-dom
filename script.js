@@ -26,7 +26,7 @@ function startNewGame(wrapperEl, modeSelector) {
     const squaresRow = Math.sqrt(cellsNumb);
     // bombe
     const bombs = genBombs(cellsNumb);
-    
+
     // 'Math.sqrt'static method returns the square root of a number (source: mdn)
     let squaresRow = Math.sqrt(cellsNumb);
     // ciclo for per generare gli squares
@@ -82,5 +82,15 @@ function getNumberOfSquares(mode) {
         default:
             cellsNumb = 100;
             break;
+    }
+}
+    // step .2 creo la funzione per generare le bombe
+    // + aggiunto all'interno una seconda const per piazarle in posizioni random
+
+function genBombs(cellsNumb) {
+    const bombs = [];
+    while (bombs.length <= 16) {
+        const = bombPosition = Math.floor(Math.random() * cellsNumb) + 1;
+        
     }
 }
