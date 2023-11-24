@@ -91,6 +91,9 @@ function genBombs(cellsNumb) {
     const bombs = [];
     while (bombs.length <= 16) {
         const = bombPosition = Math.floor(Math.random() * cellsNumb) + 1;
-        
+        if (!bombs.includes(bombPosition)) {
+            bombs.push(bombPosition);
+        }
     }
+    return bombs;
 }
