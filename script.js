@@ -39,7 +39,7 @@ function startNewGame(wrapperEl, modeSelector) {
         singularSquare.style.height = squareSize;
         //creazione if che include anche le bombe + if per bg colors on click
         if (bombs.includes(squareContent)) {
-            singularSquare.classList.add('bomba;')
+            singularSquare.classList.add('bomba');
         } else {
             if (squareContent % 2 === 0) {
                 singularSquare.classList.add('bg-black');
