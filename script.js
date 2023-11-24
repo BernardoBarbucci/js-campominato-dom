@@ -82,10 +82,10 @@ function getNumberOfSquares(mode) {
             cellsNumb = 100;
             break;
     }
+    return cellsNumb;
 }
     // step .2 creo la funzione per generare le bombe
     // + aggiunto all'interno una seconda const per piazarle in posizioni random
-
 function genBombs(cellsNumb) {
     const bombs = [];
     while (bombs.length < 16) {
@@ -96,7 +96,7 @@ function genBombs(cellsNumb) {
     }
     return bombs;
 }
-
+    // step .3 creo un alert per mostrare al player che ha perso se clicca una bomba
 function endGame() {
     alert('BOOM! you clicked the wrong square, GAME OVER!')
 }
